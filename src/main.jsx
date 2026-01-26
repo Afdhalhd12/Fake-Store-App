@@ -1,0 +1,13 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/index.jsx";
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    {/* Router provider : pembungkus element untuk memunculkan elemenr sesuai dengan path yang diminta, 
+    router= : memberikan daftar routing yang ada di route/index.jsx */}
+    <RouterProvider router={router} />
+  </StrictMode>
+);
