@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function CardComp({item}) {
   return (
     <Card
-      className="max-w-sm"
+      className="max-w-sm transform duration-100 hover:scale-102"
       imgAlt="Meaningful alt text for an image that is not purely decorative"
       imgSrc={item.image}
     >
