@@ -1,17 +1,17 @@
 import { Card } from "flowbite-react";
 
-export default function CardCommerce({item}){
-    return(
-         <Card
+export default function CardCommerce({ item, updateSelected }) {
+  return (
+    <Card
       className="max-w-sm h-"
       imgAlt={item.title}
       imgSrc={item.images[0]}
     >
       <a href="#">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-         {item.title}
+          {item.title}
         </h5>
-        
+
       </a>
       <div className="mb-5 mt-2.5 flex items-center">
         <svg
@@ -60,13 +60,12 @@ export default function CardCommerce({item}){
       </div>
       <div className="flex items-center justify-between">
         <span className="font-bold text-gray-900 dark:text-white">${item.price}</span>
-        <a
-          href="#"
+        <button onClick={() => updateSelected(item)}
           className="rounded-lg bg-cyan-700 px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
         >
           + Keranjang
-        </a>
+        </button>
       </div>
     </Card>
-    )
+  )
 }

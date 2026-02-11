@@ -4,12 +4,17 @@ import CardList from "./components/CardList";
 import { Button } from "flowbite-react";
 import { Spinner } from "flowbite-react";
 import { Link } from "react-router-dom";
+import './App.css'
+import { useContext } from "react"
+import { CartContext } from "./contexts/CartContext"
+import AlertComp from "./components/AlertComp"
 
 
 function App() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { alert, handleAlert } = useContext(CartContext);
 
   async function getData() {
     const url = "https://api.escuelajs.co/api/v1/categories";
@@ -20,7 +25,7 @@ function App() {
       }
 
       const result = await response.json();
-      setCategories(result.slice(0,4));
+      setCategories(result.slice(0, 4));
       setLoading(false);
 
     } catch (error) {
@@ -37,7 +42,7 @@ function App() {
       }
 
       const result = await response.json();
-      setProducts(result.slice(0,4));
+      setProducts(result.slice(0, 4));
       setLoading(false);
     } catch (error) {
       console.log(error.message);
@@ -50,19 +55,21 @@ function App() {
   }, []);
 
   // Pengecakan sedang loading atau engga
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <div className="flex justify-center">
         <Spinner aria-label="Default status example" />
-        <br/>
+        <br />
         <p>sedang mengambil data...</p>
       </div>
     )
   }
 
+
   return (
-    <>
+    <div>
       <BannerComp />
+      <AlertComp openModal={alert} handleClose={handleAlert} />
       <CardList data={categories} type="categories" />
       <CardList data={products} type="product">
         <div className="flex justify-between mb-5 mt-8">
@@ -72,7 +79,7 @@ function App() {
           </Link>
         </div>
       </CardList>
-    </>
+    </div>
   );
 }
 

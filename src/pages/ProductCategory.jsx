@@ -43,7 +43,7 @@ export default function ProductCategory() {
 
     function processSort(type) {
         // Copy isi products ke nama baru agar terdeteksi di setProducts untuk memunculkan tampilan produk baru (sesuai hasil sort)
-        let productNew = [...products];
+        let productNew = [...products]
         if (type == "harga termurah") {
             productNew.sort(function (a, b) { return a.price - b.price });
         } else if (type == "harga termahal") {
@@ -59,9 +59,6 @@ export default function ProductCategory() {
     useEffect(() => {
         getProducts();
     }, []);
-
-
-
 
     return (
         <div className="px-10 py-5">

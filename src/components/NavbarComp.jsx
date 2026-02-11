@@ -4,8 +4,9 @@ import {
   NavbarToggle,
 } from "flowbite-react";
 import imageLogo from "../assets/logo.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AvatarComp from "./AvatarComp";
+import { CartContext } from "../contexts/CartContext";
 
 export default function NavbarComp() {
    const [user, setUser] = useState([]);
@@ -30,8 +31,9 @@ export default function NavbarComp() {
           getData();
       }, []);
 
+
   return (
-    <Navbar fluid rounded>
+    <Navbar fluid rounded className="rounded-2xl shadow-sm m-3">
       <NavbarBrand href="https://flowbite-react.com">
         <img src={imageLogo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Fake Store App</span>
