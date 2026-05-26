@@ -12,6 +12,12 @@ export default function ProductCategory() {
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
+    const [sort, setSort] = useState({
+        sort: "",
+        order: "",
+    });
+
+    
 
      const onPageChange = (page) => {
         setCurrentPage(page);
@@ -55,6 +61,7 @@ export default function ProductCategory() {
         }
         setProducts(productNew);
     }
+    // 
 
     useEffect(() => {
         getProducts();

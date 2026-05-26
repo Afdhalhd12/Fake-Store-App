@@ -5,7 +5,7 @@ import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 export default function AlertComp({ openModal, handleClose }) {
     return (
-        <>
+        <>  
             <Modal dismissible show={openModal} onClose={handleClose}>
                 <ModalHeader />
                 <ModalBody>

@@ -9,7 +9,7 @@ export default function CardListHorizontal({ data, header, type }) {
     const navigate = useNavigate();
 
     const totalProduct = data.reduce(
-        (akumulasi, hargaBaru) => akumulasi + hargaBaru.price, 0
+        (akumulasi, hargaBaru) => akumulasi + hargaBaru.price * hargaBaru.qty, 0
     );
 
     const tax = totalProduct * 0.12;
