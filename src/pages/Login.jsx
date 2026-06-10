@@ -7,7 +7,7 @@ import {AuthContext}  from "../contexts/AuthContext";
 
 
 export default function Login() {
-    const {login}= useContext(AuthContext);
+    const {login} = useContext(AuthContext);
 
     const [form, setForm] = useState({
         email: "",
